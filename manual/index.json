@@ -1,0 +1,32 @@
+{
+  "index": [
+    {
+      "path": "index.html",
+      "name": "index.html",
+      "size": 24,
+      "extension": ".html",
+      "type": "file"
+    },
+    {
+      "path": "preferences/apps/description.html",
+      "name": "description.html",
+      "size": 207,
+      "extension": ".html",
+      "type": "file"
+    },
+    {
+      "path": "preferences/apps/index.html",
+      "name": "index.html",
+      "size": 207,
+      "extension": ".html",
+      "type": "file"
+    },
+    {
+      "path": "preferences/apps/video.html",
+      "name": "video.html",
+      "size": 123,
+      "extension": ".html",
+      "type": "file"
+    }
+  ]
+}
