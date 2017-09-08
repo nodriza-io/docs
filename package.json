@@ -4,7 +4,9 @@
   "description": "Nodriza Manual",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/nodemon/bin/nodemon.js -L lint.js"
+    "upload": "node ./index.js upload",
+    "watch": "node ./index.js watch",
+    "full": "node ./index.js upload;node ./index.js watch"
   },
   "repository": {
     "type": "git",
@@ -23,9 +25,15 @@
   "homepage": "https://github.com/nodriza-io/manual#readme",
   "dependencies": {
     "async": "^2.5.0",
+    "aws-sdk": "^2.111.0",
     "colors": "^1.1.2",
     "directory-tree": "^2.0.0",
+    "level": "^1.7.0",
+    "mime": "^1.4.0",
     "node-env-file": "^0.1.8",
+    "node-watch": "^0.5.5",
+    "nodemon": "^1.12.0",
+    "readdirp": "^2.1.0",
     "s3-sync": "^1.0.1"
   }
 }

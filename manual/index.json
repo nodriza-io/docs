@@ -1,10 +1,38 @@
 {
   "index": [
     {
+      "path": ".DS_Store",
+      "name": ".DS_Store",
+      "size": 6148,
+      "extension": "",
+      "type": "file"
+    },
+    {
+      "path": "img/google.png",
+      "name": "google.png",
+      "size": 5087,
+      "extension": ".png",
+      "type": "file"
+    },
+    {
       "path": "index.html",
       "name": "index.html",
-      "size": 24,
+      "size": 30,
       "extension": ".html",
+      "type": "file"
+    },
+    {
+      "path": "index.json",
+      "name": "index.json",
+      "size": 1182,
+      "extension": ".json",
+      "type": "file"
+    },
+    {
+      "path": "preferences/.DS_Store",
+      "name": ".DS_Store",
+      "size": 6148,
+      "extension": "",
       "type": "file"
     },
     {
