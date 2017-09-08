@@ -30,6 +30,7 @@
     "directory-tree": "^2.0.0",
     "level": "^1.7.0",
     "mime": "^1.4.0",
+    "node-dir": "^0.1.17",
     "node-env-file": "^0.1.8",
     "node-watch": "^0.5.5",
     "nodemon": "^1.12.0",

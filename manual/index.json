@@ -1,60 +1,9 @@
 {
-  "index": [
-    {
-      "path": ".DS_Store",
-      "name": ".DS_Store",
-      "size": 6148,
-      "extension": "",
-      "type": "file"
-    },
-    {
-      "path": "img/google.png",
-      "name": "google.png",
-      "size": 5087,
-      "extension": ".png",
-      "type": "file"
-    },
-    {
-      "path": "index.html",
-      "name": "index.html",
-      "size": 30,
-      "extension": ".html",
-      "type": "file"
-    },
-    {
-      "path": "index.json",
-      "name": "index.json",
-      "size": 1182,
-      "extension": ".json",
-      "type": "file"
-    },
-    {
-      "path": "preferences/.DS_Store",
-      "name": ".DS_Store",
-      "size": 6148,
-      "extension": "",
-      "type": "file"
-    },
-    {
-      "path": "preferences/apps/description.html",
-      "name": "description.html",
-      "size": 207,
-      "extension": ".html",
-      "type": "file"
-    },
-    {
-      "path": "preferences/apps/index.html",
-      "name": "index.html",
-      "size": 207,
-      "extension": ".html",
-      "type": "file"
-    },
-    {
-      "path": "preferences/apps/video.html",
-      "name": "video.html",
-      "size": 123,
-      "extension": ".html",
-      "type": "file"
-    }
+  "manual": [
+    "en/preferences/apps/description.html",
+    "en/preferences/apps/index.html",
+    "en/preferences/apps/video.html",
+    "error.html",
+    "index.html"
   ]
 }

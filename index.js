@@ -10,7 +10,10 @@ const s3sync = require('s3-sync')
 const AWS = require('aws-sdk')
 const mime = require('mime')
 const s3 = new AWS.S3()
+const cloudfront = new AWS.CloudFront()
+
 const watch = require('node-watch')
+const dir = require('node-dir')
 
 const action = process.argv[2]
 
@@ -27,19 +30,24 @@ function error (str) {
 
 function generateJson(callback) {
 	let json
-	let files = []
+	filter = []
 	const tasks = {
 		scanFiles: (callback) => {
-			dirTree(appDir, {extensions:/^(.*\.(?!(.DS_Store|git)$))?[^.]*$/i}, (file, PATH) => {
+			let files = []
+			dirTree(appDir, {extensions:/\.html$/}, (file, PATH) => {
 				files.push(file)
 			})
-			json = { index: files }
+			filter = []
+			for (var i = 0; i < files.length; i++) {
+				filter.push(files[i].path)
+			}
+			json = { manual: filter }
 			callback()
 		},
 		writeJson: (callback) => {
 			fs.writeFile(jsonPath, JSON.stringify(json, null, 2), (err) => {
 				if (err) return callback(err)
-				ok('JSON Index genetered')
+				ok('JSON genetered indexing ' + filter.length)
 				callback()
 			})
 		},	
@@ -54,26 +62,39 @@ function uploadFiles(files, callback) {
 
 	ok('Current upload Job: ' + files.length + ' files pending')
 
-	async.timesLimit(files.length, 10, (i, callback) => {
-		let file = files[i].path
-		ok('Uploading -> ' + file)
-		const fileStream = fs.createReadStream(file)
-		const params = {
-	    Bucket: process.env.BUCKET,
-	    Key: file,
-	    Body: fileStream,
-	    ACL: 'public-read',
-	    ContentType: mime.lookup(file)
-		}
-		s3.putObject(params, function(err, etag){
+	const opt = {
+		// match: /.txt$/,
+		exclude: /^\./
+	}
+	dir.readFiles(appDir, opt, function(err, content, callback) {
+		if (err) return error(err)
+		callback()
+	},
+	function(err, files){
+		if (err) return error(err)
+		// console.log('finished reading files:', files)
+		async.timesLimit(files.length, 10, (i, callback) => {
+			let file = files[i]
+			ok('Uploading -> ' + file)
+			const fileStream = fs.createReadStream(file)
+			const params = {
+		    Bucket: process.env.BUCKET,
+		    Key: file,
+		    Body: fileStream,
+		    ACL: 'public-read',
+		    ContentType: mime.lookup(file)
+			}
+			s3.putObject(params, function(err, etag){
+				if (err) return callback(err)
+				ok('Done -> ' + file)
+				callback()
+			})
+		}, (err) => {
 			if (err) return callback(err)
-			ok('Done -> ' + file)
 			callback()
 		})
-	}, (err) => {
-		if (err) return callback(err)
-		callback()
 	})
+
 
 }
 
@@ -106,6 +127,7 @@ if (action == 'upload') {
 
 	watch('./', { recursive: true }, function(evt, name) {
 		if (name != 'index.json') ok(name + ' -> Changed!')
+		if (name.slice(0, 1) === '.') return console.log('Skipping ' + name)
 		ok('Uploading: ' + name)
 		var files = []
 		const tasks = {
