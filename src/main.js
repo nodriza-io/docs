@@ -1,29 +1,26 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-
-// =============== Base libraries integration ==================
 import Vue from 'vue'
-import VueResource from 'vue-resource'
-import VueTranslate from 'vue-translate-plugin'
-
-Vue.use(VueResource)
-Vue.use(VueTranslate)
-
-import store from './store'
+import BootstrapVue from 'bootstrap-vue'
+import App from './App'
 import router from './router'
 
-// ===== Bootstrap components integration (JQuery needed) ======
-window.$ = window.jQuery = require('jquery')
-require('bootstrap-sass')
+// router.beforeEach((to, from, callback) => {
+//   // Validate user Authentication
+// })
 
-// ======================= Base Component ======================
-import App from './App'
+Vue.filter('unCammel', function (str) {
+  return str.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/\b([A-Z]+)([A-Z])([a-z])/, '$1 $2$3').replace(/^./, function (str) {
+    return str.toUpperCase()
+  })
+})
 
-// ======================== Vue Instance =======================
+Vue.use(BootstrapVue)
+
 /* eslint-disable no-new */
 new Vue({
-  router,
-  store,
   el: '#app',
-  render: h => h(App)
+  router,
+  template: '<App/>',
+  components: {
+    App
+  }
 })

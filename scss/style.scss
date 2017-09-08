@@ -1,0 +1,32 @@
+
+// @import "./nodriza-fonts/css/nodriza-font.css";
+
+// Override Boostrap variables
+@import "bootstrap-variables";
+
+// Import Bootstrap source files
+@import "bootstrap/bootstrap";
+
+// If you want you can import bootstrap scss files directly from node_modules or bower_components.
+// To do this please remove @import "bootstrap/bootstrap"; and uncomment proper line.
+
+// Import Bootstrap source files from node_modules
+// @import "node_modules/bootstrap/scss/bootstrap";
+
+// Import Bootstrap source files from bower_components
+// @import "bower_components/bootstrap/scss/bootstrap";
+
+// Override core variables
+@import "core-variables";
+
+// Import core styles
+@import "core/core";
+
+// Import vendors styles
+@import "vendors/vendors";
+
+// Import UI Kits
+@import "uikits/uikits";
+
+// Custom styles
+@import "custom";
