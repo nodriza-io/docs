@@ -1,19 +1,22 @@
 # Nodriza Manual
+## http://manual.nodriza.io
 
-Nodriza manual is served from S3 Bucket (manual.nodruza.io) and distributed through AWS CloudFront deployment using HTTPS so the manual can used by a conventional browser visiting https://manual.nodriza.io or by webclients in help section.
+Nodriza manual statics served from S3 Bucket - manual.nodruza.io
 
-## Install
+### Install
 
 $ npm run install
 
-### Work on manual
+### Dev
 
-$ npm run watch
+$npm run dev
 
-If something change and credentials detected
+### Build for production
 
-### Publish a new distribution
+$npm run build
 
-$ npm run upload
+### Deploy to S3 Bucket
 
-This will sync with AWS S3 Public bucket
+First copy ./env/env.template to ./env/env and provide the bucket name and AWS Credentials
+
+$ npm run deploy

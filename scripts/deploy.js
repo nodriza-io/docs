@@ -8,7 +8,7 @@ const dirTree = require('directory-tree')
 const AWS = require('aws-sdk')
 const mime = require('mime')
 const s3 = new AWS.S3()
-const cloudfront = new AWS.CloudFront()
+// const cloudfront = new AWS.CloudFront()
 const dir = require('node-dir')
 
 const distPath = './dist'
@@ -29,7 +29,7 @@ function error (str) {
 function uploadFiles(files, callback) {
 
 	ok('Current upload Job: ' + files.length + ' files pending')
-
+	let files
 	const opt = {
 		// match: /.txt$/,
 		exclude: /^\./
@@ -37,8 +37,9 @@ function uploadFiles(files, callback) {
 	dir.readFiles(distPath, opt, function(err, content, callback) {
 		if (err) return error(err)
 		callback()
-	},function (err, files) {
+	},function (err, _files) {
 		if (err) return error(err)
+		files = _files
 		async.timesLimit(files.length, 10, (i, callback) => {
 			let file = files[i]
 			ok('Uploading -> ' + file)
@@ -58,18 +59,19 @@ function uploadFiles(files, callback) {
 			})
 		}, (err) => {
 			if (err) return callback(err)
-			callback()
+			callback(null, files)
 		})
 	})
 }
 
 if (action == 'complete') {
 
-	var files = []
+	var files
 	const tasks = {
 		uploadFiles: (callback) => {
-			uploadFiles(files, (err) => {
+			uploadFiles(files, (err, _files) => {
 				if (err) return callback(err)
+				files = _files
 				callback()
 			})
 		}
