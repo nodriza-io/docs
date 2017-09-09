@@ -6,7 +6,7 @@ import Router from 'vue-router'
 import Full from '@/containers/Full'
 
 // Views
-import QuickStart from '@/views/QuickStart'
+import GettingStarted from '@/views/GettingStarted'
 import Page404 from '@/views/pages/Page404'
 
 Vue.use(Router)
@@ -18,14 +18,14 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Nodriza Manual',
-      redirect: '/quick-start',
+      name: 'User Manual',
+      redirect: '/getting-started',
       component: Full,
       children: [
         {
-          path: 'quick-start',
-          name: 'QuickStart',
-          component: QuickStart
+          path: 'getting-started',
+          name: 'GettingStarted',
+          component: GettingStarted
         }
       ]
     },

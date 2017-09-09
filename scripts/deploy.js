@@ -26,9 +26,8 @@ function error (str) {
 	console.log('> ' + str, '[ ERROR ]'.red)
 }
 
-function uploadFiles(files, callback) {
+function uploadFiles(callback) {
 
-	ok('Current upload Job: ' + files.length + ' files pending')
 	let files
 	const opt = {
 		// match: /.txt$/,
@@ -40,6 +39,7 @@ function uploadFiles(files, callback) {
 	},function (err, _files) {
 		if (err) return error(err)
 		files = _files
+		ok('Current upload Job: ' + files.length + ' files pending')
 		async.timesLimit(files.length, 10, (i, callback) => {
 			let file = files[i]
 			ok('Uploading -> ' + file)
@@ -69,7 +69,7 @@ if (action == 'complete') {
 	var files
 	const tasks = {
 		uploadFiles: (callback) => {
-			uploadFiles(files, (err, _files) => {
+			uploadFiles((err, _files) => {
 				if (err) return callback(err)
 				files = _files
 				callback()
