@@ -5,19 +5,31 @@
     "relativePath": "en",
     "files": [
       {
-        "name": "preferences",
-        "fullpath": "static/html/en/preferences",
-        "relativePath": "en/preferences",
+        "name": "1.-getting-started",
+        "fullpath": "static/html/en/1.-getting-started",
+        "relativePath": "en/1.-getting-started",
         "files": [
           {
-            "name": "access-policies.html",
-            "fullpath": "static/html/en/preferences/access-policies.html",
-            "relativePath": "en/preferences/access-policies.html"
+            "name": "1.1.-welcome.html",
+            "fullpath": "static/html/en/1.-getting-started/1.1.-welcome.html",
+            "relativePath": "en/1.-getting-started/1.1.-welcome.html"
+          }
+        ]
+      },
+      {
+        "name": "2.-preferences",
+        "fullpath": "static/html/en/2.-preferences",
+        "relativePath": "en/2.-preferences",
+        "files": [
+          {
+            "name": "2.1-access-policies.html",
+            "fullpath": "static/html/en/2.-preferences/2.1-access-policies.html",
+            "relativePath": "en/2.-preferences/2.1-access-policies.html"
           },
           {
-            "name": "apps.html",
-            "fullpath": "static/html/en/preferences/apps.html",
-            "relativePath": "en/preferences/apps.html"
+            "name": "2.2-apps.html",
+            "fullpath": "static/html/en/2.-preferences/2.2-apps.html",
+            "relativePath": "en/2.-preferences/2.2-apps.html"
           }
         ]
       }
@@ -42,30 +54,6 @@
             "name": "politicas-de-acceso.html",
             "fullpath": "static/html/es/preferencias/politicas-de-acceso.html",
             "relativePath": "es/preferencias/politicas-de-acceso.html"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "fr",
-    "fullpath": "static/html/fr",
-    "relativePath": "fr",
-    "files": [
-      {
-        "name": "prefersu",
-        "fullpath": "static/html/fr/prefersu",
-        "relativePath": "fr/prefersu",
-        "files": [
-          {
-            "name": "appus.html",
-            "fullpath": "static/html/fr/prefersu/appus.html",
-            "relativePath": "fr/prefersu/appus.html"
-          },
-          {
-            "name": "plicu-accessu.html",
-            "fullpath": "static/html/fr/prefersu/plicu-accessu.html",
-            "relativePath": "fr/prefersu/plicu-accessu.html"
           }
         ]
       }

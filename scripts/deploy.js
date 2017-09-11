@@ -9,6 +9,9 @@ const AWS = require('aws-sdk')
 const mime = require('mime')
 const s3 = new AWS.S3(new AWS.Config({accessKeyId: process.env.AWS_ACCESS_KEY, secretAccessKey: process.env.AWS_SECRET_KEY}))
 const dir = require('node-dir')
+const watch = require('node-watch')
+
+const generateIndex = require('../config/generateIndex')
 let uploads = 0
 
 const distPath = process.env.SOURCE_DIR
@@ -66,7 +69,6 @@ function uploadFiles(callback) {
 				}
 				s3.putObject(params, (err, etag) => {
 					if (err) return error(err.message)
-					console.log('->>> etag:', etag)
 					uploads++
 					ok('Done -> ' + 'https://s3.amazonaws.com/' + process.env.BUCKET + '/' + key)
 					callback()
@@ -79,7 +81,7 @@ function uploadFiles(callback) {
 	})
 }
 
-if (action == 'complete') {
+if (action == 'upload') {
 	var files
 	const tasks = {
 		uploadFiles: (callback) => {
@@ -95,9 +97,36 @@ if (action == 'complete') {
 		ok('Job Done, ' + uploads + ' files has been uploded, ' + (files.length - uploads) + ' has no changes.')
 	})
 
-} else if (action == 'clear') {
+} else if (action == 'watch') {
 
-	// Clear s3 bucket and invalidate cloudFront files to clear CDN Cache
+	ok('Waiting for changes')
+	watch('./static/html', { recursive: true }, function(evt, name) {
+		if (name != 'index.json') ok(name + ' -> Changed!')
+		if (name.slice(0, 1) === '.') return console.log('Skipping ' + name)
+		ok('Uploading: ' + name)
+		var files = []
+		const tasks = {
+			generateJson: (callback) => {
+				if (name == 'index.json') return callback() // Do not generate JSON index, or will loop
+				generateIndex((err, success) => {
+					if (err) return callback(err)
+					console.log(success)
+					callback()
+				})
+			},
+			// uploadFiles: (callback) => {
+			// 	uploadFiles([{path: name}], function(err){
+			// 		if (err) return callback(err)
+			// 		callback()
+			// 	})
+			// }
+		}
+		async.series(tasks, (err, _results) => {
+			if (err) return error(err)
+			console.log('')
+			ok('Waiting for changes')
+		})
+	})
 
 } else {
 	throw Error('No action specified :(')

@@ -49,6 +49,8 @@
 </template>
 
 <script>
+// import Vue from 'Vue'
+// import Router from 'vue-router'
 import Lang from '../components/Lang'
 import NavParent from '../components/NavParent'
 import _ from 'lodash'
@@ -62,7 +64,7 @@ export default {
   watch: {
     lang (lang) {
       this.menu = _.cloneDeep(this.langs[lang])
-      console.log('->>> JSON.stringify(this.menu:)', JSON.stringify(this.menu, null, 4))
+      // console.log('->>> JSON.stringify(this.menu:)', JSON.stringify(this.menu, null, 4))
     },
     menu: {
       handler (menu) {
@@ -79,18 +81,72 @@ export default {
     }
   },
   methods: {
-    // updateLang (lang) {
-    //   this.menu = _.cloneDeep(this.langs[lang])
-    //   this.lang
-    //   console.log('->>> JSON.stringify(this.menu:)', JSON.stringify(this.menu, null, 4))
-    // },
+    createRoutes () {
+      // Vue.use(Router)
+      // let routes = []
+      // for (let itm in this.langs) {
+      //   let lang = this.langs[itm]
+      //   for (var i = 0; i < lang.length; i++) {
+      //     for (var j = 0; j < lang[i].files.length; j++) {
+      //       let file = lang[i].files[j]
+      //       if (!_.isEmpty(file) && file.relativePath) {
+      //         let route = {
+      //           path: '/' + file.relativePath.split('.html')[0],
+      //           name: this.nodriza.u.kebabToText(file.name.split('.html')[0]),
+      //           component: Content
+      //         }
+      //         // this.$router.options.routes.push(route)
+      //         routes.push(route)
+      //       }
+      //       // console.log('->>>  lang[i].files[j]:', )
+      //       // es/preferencias/politicas-de-acceso.html
+      //     }
+      //     // console.log('->>> JSON.stringify(lang[i]))', JSON.stringify(lang[i].files))
+      //   }
+      // }
+      // const page404 = {
+      //   path: '*',
+      //   name: 'Page404',
+      //   component: Page404
+      // }
+      // routes.push(page404)
+      // this.$router.options.routes.push(page404)
+      // const router = new Router({ routes })
+      // console.log('->>> router:', router)
+      // this.$router.addRoutes(routes)
+      // console.log('->>> this.$router:', this.$router.options.routes)
+      /*    
+      // {
+      //   path: '/en/preferences',
+      //   name: 'Preferences',
+      //   redirect: '/en/preferences/access-policies',
+      //   component: Full,
+      //   children: [
+      //     {
+      //       path: 'access-policies',
+      //       name: 'Access Policy',
+      //       component: GettingStarted
+      //     }
+      //   ]
+      // },
+       */
+
+      // this.$router.options.routes.forEach(route => {
+      //   this.items.push({
+      //     name: route.name,
+      //     path: route.path
+      //   })
+      // })
+    },
     handleClick (e) {
       e.preventDefault()
       e.target.parentElement.classList.toggle('open')
     }
   },
   mounted () {
-    this.nodriza.u.req('static/index.json', (err, data) => {
+    this.eventHub.$emit('showPreload', 'Loading...')
+    this.nodriza.u.req('/static/index.json', (err, data) => {
+      this.eventHub.$emit('hidePreload')
       if (err) return alert(err)
       for (var i = 0; i < data.length; i++) {
         this.langs[data[i].name] = data[i].files
@@ -98,6 +154,7 @@ export default {
       // console.log('->>> this.langs:', this.langs)
       this.langs = _.cloneDeep(this.langs)
       this.lang = 'en'
+      console.log('->>> Object.keys:', Object.keys(this.$router))
     })
   }
 }

@@ -1,37 +1,42 @@
 <template>
-  <div>  
+  <div>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item" v-for="(item, index) in list"><span class="active" v-if="isLast(index)">{{ nodriza.u.unCammel(showName(item)) }}</span>
-        <router-link :to="item.path" v-else>{{ nodriza.u.unCammel(showName(item)) }}</router-link>
-      </li>
+        <li v-if="lang" class="breadcrumb-item"><span>{{ lang | lang }}</span></li>
+        <li v-if="category" class="breadcrumb-item"><span>{{ category | category }}</span></li>
+        <li v-if="content" class="breadcrumb-item"><span class="active">{{ content | content }}</span></li>
     </ol>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    list: {
-      type: Array,
-      required: true,
-      default: () => []
+  data () {
+    return {
+      lang: null,
+      category: null,
+      content: null
     }
   },
   components: {
   },
   methods: {
-    isLast (index) {
-      return index === this.list.length - 1
-    },
-    showName (item) {
-      if (item.meta && item.meta.label) {
-        item = item.meta && item.meta.label
-      }
-      if (item.name) {
-        item = item.name
-      }
-      return item
+    updateBreadcrum () {
+      let params = this.$route.params
+      this.lang = params.lang ? params.lang.toUpperCase() : ''
+      this.category = params.category ? this.nodriza.u.kebabToText(params.category) : ''
+      this.content = params.content ? this.nodriza.u.kebabToText(params.content) : ''
     }
+  },
+  mounted () {
+    this.eventHub.$on('showPreload', () => {
+      // this.show = false
+    })
+
+    this.eventHub.$on('hidePreload', () => {
+      // this.show = true
+      this.updateBreadcrum()
+      console.log('--> trueeee___')
+    })
   }
 }
 </script>

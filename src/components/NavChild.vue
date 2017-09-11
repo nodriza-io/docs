@@ -1,7 +1,7 @@
 <template>
   <div>
     <li class="nav-item">
-      <a :href="relativePath" class="nav-link slim bg-gray-dark"><i class="fa fa-angle-right"></i> {{ nodriza.u.kebabToText(name.split('.html')[0]) }} </a>
+      <a :href="'/' + relativePath.split('.html')[0]" class="nav-link slim bg-gray-dark"><i class="fa fa-angle-right"></i> {{ nodriza.u.kebabToText(name.split('.html')[0]) }} </a>
     </li>
   </div>
     

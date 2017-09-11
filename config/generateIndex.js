@@ -10,7 +10,6 @@
     console.log('> Updating ' + json + '...')
     fs.writeFile(json, JSON.stringify(files, null, 2), (err) => {
       if (err) throw Error(err)
-      if (callback) callback()
-      console.log('> ' + json + ' updated successfully!')
+      if (callback) callback(null, '> ' + json + ' updated successfully!')
     })
   }

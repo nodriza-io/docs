@@ -6,7 +6,7 @@ import Router from 'vue-router'
 import Full from '@/containers/Full'
 
 // Views
-import GettingStarted from '@/views/GettingStarted'
+import Content from '@/views/Content'
 import Page404 from '@/views/pages/Page404'
 
 Vue.use(Router)
@@ -18,21 +18,33 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'User Manual',
+      name: 'Getting Started',
       redirect: '/getting-started',
       component: Full,
       children: [
         {
           path: 'getting-started',
-          name: 'GettingStarted',
-          component: GettingStarted
+          name: 'Content',
+          component: Content
         }
       ]
     },
     {
-      path: '*',
+      path: '/404',
       name: 'Page404',
       component: Page404
+    },
+    {
+      path: '*',
+      name: 'Manual',
+      component: Full,
+      children: [
+        {
+          path: '/:lang/:category/:content',
+          name: 'Content',
+          component: Content
+        }
+      ]
     }
   ]
 })

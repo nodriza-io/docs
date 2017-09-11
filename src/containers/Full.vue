@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <Preload/>
     <div class="app-body">
       <Sidebar/>
       <main class="main bg-pattern">
@@ -16,12 +17,14 @@
 
 import Sidebar from '../components/Sidebar'
 import Breadcrumb from '../components/Breadcrumb'
+import Preload from '../components/Preload'
 
 export default {
   name: 'full',
   components: {
     Sidebar,
-    Breadcrumb
+    Breadcrumb,
+    Preload
   },
   data () {
     return {
