@@ -33,10 +33,9 @@ module.exports = merge(baseWebpackConfig, {
       inject: true
     }),
     new FriendlyErrorsPlugin(),
-    // new webpack.DefinePlugin({
-    //   'API_ENDPOINT': JSON.stringify('http://localhost:8080/bands')
-    // }),
-
+    // new webpack.WatchIgnorePlugin([
+    //   /\.json$/
+    // ]),
     // copy custom static assets
     new CopyWebpackPlugin([
       {

@@ -1,0 +1,74 @@
+[
+  {
+    "name": "en",
+    "fullpath": "static/html/en",
+    "relativePath": "en",
+    "files": [
+      {
+        "name": "preferences",
+        "fullpath": "static/html/en/preferences",
+        "relativePath": "en/preferences",
+        "files": [
+          {
+            "name": "access-policies.html",
+            "fullpath": "static/html/en/preferences/access-policies.html",
+            "relativePath": "en/preferences/access-policies.html"
+          },
+          {
+            "name": "apps.html",
+            "fullpath": "static/html/en/preferences/apps.html",
+            "relativePath": "en/preferences/apps.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "es",
+    "fullpath": "static/html/es",
+    "relativePath": "es",
+    "files": [
+      {
+        "name": "preferencias",
+        "fullpath": "static/html/es/preferencias",
+        "relativePath": "es/preferencias",
+        "files": [
+          {
+            "name": "apps.html",
+            "fullpath": "static/html/es/preferencias/apps.html",
+            "relativePath": "es/preferencias/apps.html"
+          },
+          {
+            "name": "politicas-de-acceso.html",
+            "fullpath": "static/html/es/preferencias/politicas-de-acceso.html",
+            "relativePath": "es/preferencias/politicas-de-acceso.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "fr",
+    "fullpath": "static/html/fr",
+    "relativePath": "fr",
+    "files": [
+      {
+        "name": "prefersu",
+        "fullpath": "static/html/fr/prefersu",
+        "relativePath": "fr/prefersu",
+        "files": [
+          {
+            "name": "appus.html",
+            "fullpath": "static/html/fr/prefersu/appus.html",
+            "relativePath": "fr/prefersu/appus.html"
+          },
+          {
+            "name": "plicu-accessu.html",
+            "fullpath": "static/html/fr/prefersu/plicu-accessu.html",
+            "relativePath": "fr/prefersu/plicu-accessu.html"
+          }
+        ]
+      }
+    ]
+  }
+]

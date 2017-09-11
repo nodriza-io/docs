@@ -1,16 +1,16 @@
 <template>
   <div class="animated fadeIn">
     <!-- <div class="row"> -->
-<!-- 
+<!--
       <PageTitle>
         <template slot="description">
           Integrating third party apps with Nodriza will potentially extend the platform capabilities. Please take a minute to learn how each app can help your organization, partners and clients to be more productive.
         </template>
       </PageTitle> -->
 
-      <div class="jumbotron bg-gray-dark text-white p-0">
+      <div class="jumbotron bg-inverse p-0" style="background: #0c0c0c">
         <h1 class="m-l-40 m-b-0 p-b-0">
-        <img class="logo-jumbotron m-r-30" src="https://s3.amazonaws.com/nodriza-io/assets/img/logos/nodriza-logo-color.svg">{{ $route.name | unCammel }}</h1>
+        <img style="height: 200px;" class="m-r-30" src="https://s3.amazonaws.com/nodriza-io/assets/img/logos/nodriza-logo-color.svg">{{ nodriza.u.unCammel($route.name) }}</h1>
       </div>
 
       <div class="row marketing">
@@ -33,11 +33,11 @@
           <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
           <h4>Developers</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non ma.</p>
         </div>
       </div>
 
-      
+
 
     </div><!--/.row-->
   <!-- </div> -->
@@ -59,6 +59,6 @@ export default {
 
 <style scoped>
 .logo-jumbotron {
-  height: 200px;
+
 }
 </style>

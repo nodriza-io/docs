@@ -11,6 +11,10 @@ module.exports = {
   entry: {
     app: './src/main.js'
   },
+  // watchOptions: {
+  //   aggregateTimeout: 1000,
+  //   poll: 1000
+  // },
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',

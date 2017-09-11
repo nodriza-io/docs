@@ -7,11 +7,11 @@ const colors = require('colors')
 const dirTree = require('directory-tree')
 const AWS = require('aws-sdk')
 const mime = require('mime')
-const s3 = new AWS.S3()
-// const cloudfront = new AWS.CloudFront()
+const s3 = new AWS.S3(new AWS.Config({accessKeyId: process.env.AWS_ACCESS_KEY, secretAccessKey: process.env.AWS_SECRET_KEY}))
 const dir = require('node-dir')
+let uploads = 0
 
-const distPath = './dist'
+const distPath = process.env.SOURCE_DIR
 const action = process.argv[2]
 
 if (!process.env.BUCKET || !process.env.AWS_ACCESS_KEY || !process.env.AWS_SECRET_KEY) {
@@ -33,39 +33,53 @@ function uploadFiles(callback) {
 		// match: /.txt$/,
 		exclude: /^\./
 	}
-	dir.readFiles(distPath, opt, function(err, content, callback) {
+	dir.readFiles(distPath, opt, function(err, content, cb) {
 		if (err) return error(err)
-		callback()
-	},function (err, _files) {
+		cb()
+	}, (err, _files) => {
 		if (err) return error(err)
 		files = _files
-		ok('Current upload Job: ' + files.length + ' files pending')
-		async.timesLimit(files.length, 10, (i, callback) => {
+		ok('Current upload Job: ' + files.length + ' files in queue')
+		async.timesLimit(files.length, parseInt(process.env.PARALLEL), (i, callback) => {
 			let file = files[i]
-			ok('Uploading -> ' + file)
-			let key = file.slice(distPath.length - 1, file.length)
-			const fileStream = fs.createReadStream(file)
-			const params = {
+			const size = fs.statSync(file).size
+			let key = file.slice(distPath.length + 1, file.length)
+			var params = {
 		    Bucket: process.env.BUCKET,
-		    Key: key,
-		    Body: fileStream,
-		    ACL: 'public-read',
-		    ContentType: mime.lookup(file)
+		    Key: key
 			}
-			s3.putObject(params, function(err, etag){
+			s3.headObject(params, function(err, data) {
+				// Check if file exist or modified
+				if (data && data.ContentLength === size) {
+					ok('Notihng changed, skipping -> ' + file)
+					return callback()
+				}
+				ok('Uploading -> ' + file.blue + ' Size: ' + parseInt(size / 1024) + ' KB\'s')
+				let key = file.slice(distPath.length + 1, file.length)
+				const fileStream = fs.createReadStream(file)
+				var params = {
+			    Bucket: process.env.BUCKET,
+			    Key: key,
+			    Body: fileStream,
+			    ACL: process.env.ACL,
+			    ContentType: mime.lookup(file)
+				}
+				s3.putObject(params, (err, etag) => {
+					if (err) return error(err.message)
+					console.log('->>> etag:', etag)
+					uploads++
+					ok('Done -> ' + 'https://s3.amazonaws.com/' + process.env.BUCKET + '/' + key)
+					callback()
+				})
+			}, (err) => {
 				if (err) return callback(err)
-				ok('Done -> ' + file)
-				callback()
+				callback(null, files)
 			})
-		}, (err) => {
-			if (err) return callback(err)
-			callback(null, files)
 		})
 	})
 }
 
 if (action == 'complete') {
-
 	var files
 	const tasks = {
 		uploadFiles: (callback) => {
@@ -78,7 +92,7 @@ if (action == 'complete') {
 	}
 	async.series(tasks, (err) => {
 		if (err) return error(err)
-		ok('Job Done, ' + files.length + ' files has been uploded successfully!')
+		ok('Job Done, ' + uploads + ' files has been uploded, ' + (files.length - uploads) + ' has no changes.')
 	})
 
 } else if (action == 'clear') {

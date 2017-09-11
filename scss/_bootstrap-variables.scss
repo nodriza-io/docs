@@ -7,13 +7,13 @@ $brand-success:  #4CAF50 !default; // Green
 $brand-info:     #3D82F7 !default; // Blue
 $brand-warning:  #FCBC00 !default; // Yellow
 $brand-danger:   #D3135A !default; // Red
- 
+
 $gray-dark:      #252525 !default;
 $gray:           #55595c !default;
 $gray-light:     #818a91 !default;
 $gray-lighter:   #eeeeee !default;
 $gray-lightest:  #f8f9fa !default;
- 
+
 $body-bg:        #fafafa !default;
 
 $rounded:           .15 !default;
@@ -136,7 +136,7 @@ $navbar-brand-logo: $brand-logo;
 }
 
 .brand-wallpaper {
-  background: $brand-wallpaper no-repeat center center fixed; 
+  background: $brand-wallpaper no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -334,6 +334,10 @@ $table-bg-hover:                $gray-lightest;
   }
 
 // --- Input --- //
+text-bold {
+  font-weight: 600 !important;
+}
+
 input {
   height: 41px;
 }
@@ -356,7 +360,6 @@ input {
 
 .bg-pattern {
   background-size: 1250px 350px,50%;
-  padding: 4em 0;
   background-image: url('https://s3.amazonaws.com/nodriza-io/assets/img/bg-pattern.png');
 }
 

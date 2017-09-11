@@ -1,16 +1,14 @@
 <template>
   <div>  
     <ol class="breadcrumb">
-      <li class="breadcrumb-item" v-for="(item, index) in list"><span class="active" v-if="isLast(index)">{{ showName(item) | unCammel }}</span>
-        <router-link :to="item.path" v-else>{{ showName(item) | unCammel }}</router-link>
+      <li class="breadcrumb-item" v-for="(item, index) in list"><span class="active" v-if="isLast(index)">{{ nodriza.u.unCammel(showName(item)) }}</span>
+        <router-link :to="item.path" v-else>{{ nodriza.u.unCammel(showName(item)) }}</router-link>
       </li>
-      <Lang/>
     </ol>
   </div>
 </template>
 
 <script>
-import Lang from '../components/Lang'
 export default {
   props: {
     list: {
@@ -20,7 +18,6 @@ export default {
     }
   },
   components: {
-    Lang
   },
   methods: {
     isLast (index) {

@@ -2,7 +2,7 @@
   <div class="app">
     <div class="app-body">
       <Sidebar/>
-      <main class="main" v-bind:class="background">
+      <main class="main bg-pattern">
         <breadcrumb :list="list"/>
         <div class="container-fluid">
           <router-view></router-view>

@@ -1,6 +1,6 @@
 require('./check-versions')()
 const colors = require('colors')
-
+const generateIndex = require('../config/generateIndex.js')
 console.log('')
 console.log('> Nodriza Manual')
 console.log('')
@@ -48,11 +48,15 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
 })
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler, {
-  log: () => {},
-  
+  log: () => {
+
+  },
+
 })
 // force page reload when html-webpack-plugin template changes
 compiler.plugin('compilation', function (compilation) {
+    // Generate index.json when something change...
+    // generateIndex(() => {})
   compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
     hotMiddleware.publish({ action: 'reload' })
     cb()
@@ -74,7 +78,7 @@ app.use(require('connect-history-api-fallback')())
 // serve webpack bundle output
 app.use(devMiddleware)
 
-// enable hot-reload and state-preserving
+// enable hot-reload and state-preservings
 // compilation error display
 app.use(hotMiddleware)
 
@@ -88,6 +92,9 @@ var _resolve
 var readyPromise = new Promise(resolve => {
   _resolve = resolve
 })
+
+// Generate index.json when start
+generateIndex(() => {})
 
 console.log('> Starting dev server...')
 devMiddleware.waitUntilValid(() => {
