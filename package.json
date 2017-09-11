@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "export $(cat ./env/env | xargs) && node build/dev-server.js & npm run watch",
+    "serve": "node scripts/server.js",
     "deploy": "node scripts/deploy.js upload",
     "watch": "node scripts/deploy.js watch",
     "build": "node build/build.js;rm -rf ../assets/app;cp -r dist ../assets;mv ../assets/dist ../assets/app",
@@ -59,7 +60,7 @@
     "eslint-plugin-promise": "3.5.0",
     "eslint-plugin-standard": "3.0.1",
     "eventsource-polyfill": "^0.9.6",
-    "express": "4.15.4",
+    "express": "^4.15.4",
     "extract-text-webpack-plugin": "3.0.0",
     "file-loader": "0.11.2",
     "friendly-errors-webpack-plugin": "1.6.1",

@@ -36,7 +36,7 @@ export default new Router({
     },
     {
       path: '*',
-      name: 'Manual',
+      name: 'Home',
       component: Full,
       children: [
         {

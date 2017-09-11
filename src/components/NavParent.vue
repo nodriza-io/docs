@@ -2,7 +2,7 @@
 <div>
   <li class="nav-item">
     <li class="nav-item nav-dropdown open">
-      <div class="category text-uppercase"><i class="fa fa-chevron-down m-r-10"></i> {{ nodriza.u.kebabToText(name) }}</div>
+      <div class="category text-uppercase">{{ nodriza.u.kebabToText(name) }}<i class="fa fa-chevron-down m-r-10 pull-right"></i> </div>
       <ul class="nav-dropdown-items">
         <div v-for="child in files">
           <NavChild :child="child" :active="active"/>

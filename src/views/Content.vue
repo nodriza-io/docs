@@ -46,6 +46,18 @@ export default {
   data: function () {
     return {
     }
+  },
+  mounted () {
+    this.nodriza.u.req(this.$route, (err, data) => {
+      if (err) return alert(err)
+      for (var i = 0; i < data.length; i++) {
+        this.langs[data[i].name] = data[i].files
+      }
+      // console.log('->>> this.langs:', this.langs)
+      this.langs = _.cloneDeep(this.langs)
+      this.createRoutes()
+      this.lang = 'en'
+    })
   }
 }
 </script>

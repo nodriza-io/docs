@@ -5,31 +5,31 @@
     "relativePath": "en",
     "files": [
       {
-        "name": "1.-getting-started",
-        "fullpath": "static/html/en/1.-getting-started",
-        "relativePath": "en/1.-getting-started",
+        "name": "1)-getting-started",
+        "fullpath": "static/html/en/1)-getting-started",
+        "relativePath": "en/1)-getting-started",
         "files": [
           {
-            "name": "1.1.-welcome.html",
-            "fullpath": "static/html/en/1.-getting-started/1.1.-welcome.html",
-            "relativePath": "en/1.-getting-started/1.1.-welcome.html"
+            "name": "I)-welcome.html",
+            "fullpath": "static/html/en/1)-getting-started/I)-welcome.html",
+            "relativePath": "en/1)-getting-started/I)-welcome.html"
           }
         ]
       },
       {
-        "name": "2.-preferences",
-        "fullpath": "static/html/en/2.-preferences",
-        "relativePath": "en/2.-preferences",
+        "name": "2)-preferences",
+        "fullpath": "static/html/en/2)-preferences",
+        "relativePath": "en/2)-preferences",
         "files": [
           {
-            "name": "2.1-access-policies.html",
-            "fullpath": "static/html/en/2.-preferences/2.1-access-policies.html",
-            "relativePath": "en/2.-preferences/2.1-access-policies.html"
+            "name": "I)-access-policies.html",
+            "fullpath": "static/html/en/2)-preferences/I)-access-policies.html",
+            "relativePath": "en/2)-preferences/I)-access-policies.html"
           },
           {
-            "name": "2.2-apps.html",
-            "fullpath": "static/html/en/2.-preferences/2.2-apps.html",
-            "relativePath": "en/2.-preferences/2.2-apps.html"
+            "name": "II)-apps.html",
+            "fullpath": "static/html/en/2)-preferences/II)-apps.html",
+            "relativePath": "en/2)-preferences/II)-apps.html"
           }
         ]
       }
