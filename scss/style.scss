@@ -1,5 +1,7 @@
 
 // @import "./nodriza-fonts/css/nodriza-font.css";
+// @import "../node_modules/roboto-fontface/css/roboto/roboto-fontface.css";
+@import "roboto";
 
 // Override Boostrap variables
 @import "bootstrap-variables";
@@ -23,7 +25,7 @@
 @import "core/core";
 
 // Import vendors styles
-@import "vendors/vendors";
+// @import "vendors/vendors";
 
 // Import UI Kits
 @import "uikits/uikits";

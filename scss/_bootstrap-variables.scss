@@ -23,6 +23,10 @@ $brand-logo:        url('https://s3.amazonaws.com/nodriza-io/assets/img/logos/de
 $brand-wallpaper:   url('https://s3.amazonaws.com/nodriza-io/assets/img/wallpaper.png') !default;
 $navbar-brand-logo: $brand-logo;
 
+html, html * {
+  font-family: Roboto;
+}
+
 // Border Colors
 
 .border-primary {

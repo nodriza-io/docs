@@ -28,7 +28,7 @@ export default {
     this.eventHub.$on('updateBreadcrumb', () => {
       this.lang = this.$route.params.lang.toUpperCase()
       this.category = this.nodriza.u.kebabToText(this.$route.params.category).split(')')[1]
-      this.content = this.nodriza.u.kebabToText(this.$route.params.content).split(')')[1]
+      this.content = (this.$route.params.content.indexOf(')') !== -1) ? this.nodriza.u.kebabToText(this.$route.params.content).split(')')[1] : this.nodriza.u.kebabToText(this.$route.params.content)
       document.title = 'Nodriza Docs / ' + this.lang + ' / ' + this.category + ' / ' + this.content
     })
   }

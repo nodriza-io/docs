@@ -27,14 +27,14 @@
         "relativePath": "en/2)-glosary",
         "files": [
           {
-            "name": "I)-access-policies.html",
-            "fullpath": "static/html/en/2)-glosary/I)-access-policies.html",
-            "relativePath": "en/2)-glosary/I)-access-policies.html"
+            "name": "access-policies.html",
+            "fullpath": "static/html/en/2)-glosary/access-policies.html",
+            "relativePath": "en/2)-glosary/access-policies.html"
           },
           {
-            "name": "II)-apps.html",
-            "fullpath": "static/html/en/2)-glosary/II)-apps.html",
-            "relativePath": "en/2)-glosary/II)-apps.html"
+            "name": "apps.html",
+            "fullpath": "static/html/en/2)-glosary/apps.html",
+            "relativePath": "en/2)-glosary/apps.html"
           }
         ]
       }
@@ -63,14 +63,14 @@
         "relativePath": "es/2)-glosario",
         "files": [
           {
-            "name": "I)-politicas-de-acceso.html",
-            "fullpath": "static/html/es/2)-glosario/I)-politicas-de-acceso.html",
-            "relativePath": "es/2)-glosario/I)-politicas-de-acceso.html"
+            "name": "apps.html",
+            "fullpath": "static/html/es/2)-glosario/apps.html",
+            "relativePath": "es/2)-glosario/apps.html"
           },
           {
-            "name": "II)-apps.html",
-            "fullpath": "static/html/es/2)-glosario/II)-apps.html",
-            "relativePath": "es/2)-glosario/II)-apps.html"
+            "name": "politicas-de-acceso.html",
+            "fullpath": "static/html/es/2)-glosario/politicas-de-acceso.html",
+            "relativePath": "es/2)-glosario/politicas-de-acceso.html"
           }
         ]
       }

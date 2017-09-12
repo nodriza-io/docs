@@ -1,15 +1,12 @@
 <template>
-  <div class="animated fadeIn" >
-    <h1 class="m-b-25 title">{{ title }}</h1>
+  <div v-if="content" class="animated fadeIn" >
+    <h2 class="m-b-25 title">{{ title }}</h2>
     <div v-html="content">
       {{ content }}
     </div>
     <div class="m-b-20"> 
       <hr>
-      <span>
-        
-      ©2017 Nodriza
-      </span>
+      <span>©2017 Nodriza</span>
       <span class="pull-right"><a href="http://nodriza.io" target="_blank">nodriza.io</a></span>
     </div>
   </div>
@@ -22,7 +19,7 @@ export default {
   },
   data: function () {
     return {
-      content: '',
+      content: null,
       title: ''
     }
   },
@@ -32,17 +29,20 @@ export default {
   mounted () {
     this.eventHub.$on('content', (content) => {
       this.content = content
-      this.title = this.nodriza.u.kebabToText(this.$route.params.content).split(')')[1]
+      this.title = (this.$route.params.content.indexOf(')') !== -1) ? this.nodriza.u.kebabToText(this.$route.params.content).split(')')[1] : this.nodriza.u.kebabToText(this.$route.params.content)
     })
   }
 }
 </script>
 
-<style scoped>
-.logo-jumbotron {
+<style>
 
-}
-.title {
-  /*font-weight: 100;*/
-}
+  h1, h2, h3 {
+    font-weight: 300;
+  }
+
+  h4, h5, h6 {
+    font-weight: 400;
+  }
+  
 </style>

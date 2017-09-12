@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "export $(cat ./env/env | xargs) && node build/dev-server.js & npm run watch",
     "serve": "clear;npm run build;node scripts/server.js",
-    "deploy": "node scripts/deploy.js upload",
+    "upload": "node scripts/deploy.js upload",
     "watch": "node scripts/deploy.js watch",
     "build": "node build/build.js;rm -rf ../assets/app;cp -r dist ../assets;mv ../assets/dist ../assets/app",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
@@ -24,8 +24,6 @@
     "gulp": "^3.9.1",
     "node-watch": "^0.5.5",
     "nodriza": "^1.0.15",
-    "numeral": "^2.0.6",
-    "simple-line-icons": "^2.4.1",
     "vue": "2.4.2",
     "vue-router": "2.7.0",
     "webfont": "^7.1.4"

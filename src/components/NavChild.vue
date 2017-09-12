@@ -53,12 +53,14 @@ export default {
   }
 
   .slim {
+        /*font-family: "Roboto-Bold";*/
     cursor: pointer;
     padding-left: 20px !important;
     padding-top: 8px !important;
     padding-bottom: 8px !important; 
-    font-size: 14px;
+    font-size: 12px;
     transition: 0.5s;
+    font-weight: 500;
   }
 
   .active {
