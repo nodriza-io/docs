@@ -1,4 +1,4 @@
-# Nodriza Manual
+# Nodriza Docs
 
 ## http://manual.nodriza.io
 
