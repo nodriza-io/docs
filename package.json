@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "export $(cat ./env/env | xargs) && node build/dev-server.js & npm run watch",
-    "serve": "node scripts/server.js",
+    "serve": "clear;npm run build;node scripts/server.js",
     "deploy": "node scripts/deploy.js upload",
     "watch": "node scripts/deploy.js watch",
     "build": "node build/build.js;rm -rf ../assets/app;cp -r dist ../assets;mv ../assets/dist ../assets/app",
@@ -16,6 +16,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "async": "^2.5.0",
     "axios": "^0.16.2",
     "bootstrap-vue": "0.21.0",
     "file-tree-sync": "^0.0.0",

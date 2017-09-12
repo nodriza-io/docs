@@ -27,11 +27,6 @@ export default {
   components: {
     NavChild
   },
-  watch: {
-    active (state) {
-      console.log('->>> From parent state:', state)
-    }
-  },
   data: function () {
     return {
       name: '',
@@ -44,7 +39,6 @@ export default {
   methods: {
   },
   mounted () {
-    console.log('->>> this.menu:', this.parent)
     Object.assign(this, this.parent)
   }
 }

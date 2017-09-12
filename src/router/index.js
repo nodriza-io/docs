@@ -18,16 +18,15 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Getting Started',
-      redirect: '/getting-started',
-      component: Full,
-      children: [
-        {
-          path: 'getting-started',
-          name: 'Content',
-          component: Content
-        }
-      ]
+      redirect: '/en/1)-getting-started/I)-welcome'
+    },
+    {
+      path: '/en',
+      redirect: '/en/1)-getting-started/I)-welcome'
+    },
+    {
+      path: '/es',
+      redirect: '/es/1)-empecemos/I)-bienvenido'
     },
     {
       path: '/404',

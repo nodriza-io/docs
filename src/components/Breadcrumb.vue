@@ -1,9 +1,12 @@
 <template>
   <div>
     <ol class="breadcrumb">
-        <li v-if="lang" class="breadcrumb-item"><span>{{ lang | lang }}</span></li>
-        <li v-if="category" class="breadcrumb-item"><span>{{ category | category }}</span></li>
-        <li v-if="content" class="breadcrumb-item"><span class="active">{{ content | content }}</span></li>
+      <template v-if="lang && category && content">        
+        <li class="breadcrumb-item"><span>Docs</span></li>
+        <li class="breadcrumb-item"><span>{{ lang }}</span></li>
+        <li class="breadcrumb-item"><span>{{ category }}</span></li>
+        <li class="breadcrumb-item"><span class="active">{{ content }}</span></li>
+      </template>
     </ol>
   </div>
 </template>
@@ -20,22 +23,12 @@ export default {
   components: {
   },
   methods: {
-    updateBreadcrum () {
-      let params = this.$route.params
-      this.lang = params.lang ? params.lang.toUpperCase() : ''
-      this.category = params.category ? this.nodriza.u.kebabToText(params.category) : ''
-      this.content = params.content ? this.nodriza.u.kebabToText(params.content) : ''
-    }
   },
   mounted () {
-    this.eventHub.$on('showPreload', () => {
-      // this.show = false
-    })
-
-    this.eventHub.$on('hidePreload', () => {
-      // this.show = true
-      this.updateBreadcrum()
-      console.log('--> trueeee___')
+    this.eventHub.$on('updateBreadcrumb', () => {
+      this.lang = this.$route.params.lang.toUpperCase()
+      this.category = this.nodriza.u.kebabToText(this.$route.params.category).split(')')[1]
+      this.content = this.nodriza.u.kebabToText(this.$route.params.content).split(')')[1]
     })
   }
 }

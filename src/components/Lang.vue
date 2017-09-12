@@ -3,7 +3,7 @@
   <!-- <span class="m-r-5 label"> LANGUAGES </span> -->
     <i class="fa fa-globe globle"></i>
     <template v-for="(item, index) in langs">
-      <a :class="index === lang ? 'activeLang' : ''" class="m-r-10 text-bold langs" href="#" @click="lang = index">{{ index.toUpperCase() }}</a>
+      <a :class="index === $route.params.lang ? 'activeLang' : ''" class="m-r-10 text-bold langs" @click="lang = index">{{ index.toUpperCase() }}</a>
     </template>
   </div>
 </template>
@@ -26,6 +26,7 @@ export default {
   watch: {
     lang (lang) {
       this.$emit('input', this.lang)
+      this.$router.push('/' + lang)
     }
   },
   data: function () {
@@ -52,6 +53,7 @@ export default {
   }
 
   .langs {
+    cursor: pointer;    
     font-size: 16px;
     font-weight: 100;
   }

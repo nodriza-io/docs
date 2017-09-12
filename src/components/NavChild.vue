@@ -1,8 +1,7 @@
 <template>
   <div>
     <li class="nav-item">
-      <!-- <a :href="'/' + relativePath.split('.html')[0]" class="nav-link slim bg-gray-dark"><i class="fa fa-angle-right"></i> {{ nodriza.u.kebabToText(name.split('.html')[0]) }} </a> -->
-      <a :href="'/' + relativePath.split('.html')[0]" class="nav-link slim bg-gray-dark">{{ nodriza.u.kebabToText(name.split('.html')[0]) }} </a>
+      <a @click="goTo()" class="nav-link slim bg-gray-dark">{{ nodriza.u.kebabToText(name.split('.html')[0]) }} </a>
     </li>
   </div>
     
@@ -18,13 +17,6 @@ export default {
       default: {}
     }
   },
-  components: {
-  },
-  watch: {
-    active (state) {
-      console.log('->>> From parent state:', state)
-    }
-  },
   data: function () {
     return {
       name: '',
@@ -34,10 +26,12 @@ export default {
     }
   },
   methods: {
+    goTo (route) {
+      this.$router.push('/' + this.relativePath.split('.html')[0])
+    }
   },
   mounted () {
     Object.assign(this, this.child)
-    console.log('->>> this.name:', this.name)
   }
 }
 </script>
@@ -49,9 +43,11 @@ export default {
   }
 
   .slim {
+    cursor: pointer;
     padding-left: 20px !important;
     padding-top: 8px !important;
     padding-bottom: 8px !important; 
     font-size: 14px;
   }
+
 </style>
