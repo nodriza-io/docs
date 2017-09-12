@@ -1,10 +1,17 @@
 <template>
-  <div>
-    
-  <h1 class="m-b-25 title">{{ title }}</h1>
-  <div class="animated fadeIn" v-html="content">
-    {{ content }}
-  </div>
+  <div class="animated fadeIn" >
+    <h1 class="m-b-25 title">{{ title }}</h1>
+    <div v-html="content">
+      {{ content }}
+    </div>
+    <div class="m-b-20"> 
+      <hr>
+      <span>
+        
+      ©2017 Nodriza
+      </span>
+      <span class="pull-right"><a href="http://nodriza.io" target="_blank">nodriza.io</a></span>
+    </div>
   </div>
 </template>
 

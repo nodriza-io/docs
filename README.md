@@ -18,6 +18,12 @@ $ npm run dev
 
 $ npm run build
 
+### Test production build
+
+Validate if everything is ok before deploy on S3 -> http://localhost:5000
+
+$ npm run serve
+
 ### Deploy to S3 Bucket
 
 First time copy ./env/env.template to ./env/env and provide the bucket name and AWS Credentials

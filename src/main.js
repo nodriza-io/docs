@@ -34,7 +34,7 @@ window.eventHub = eventHub
 window.rx = rx
 
 router.beforeEach((to, from, callback) => {
-  eventHub.$emit('showPreload', 'Loading...')
+  eventHub.$emit('showPreload', 'Loading Docs...')
   const fullpath = '/static/html' + to.path + '.html'
   console.log('->>> fullPath:', fullpath)
   if (to.path === '/404') return callback()

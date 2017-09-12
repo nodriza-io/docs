@@ -15,9 +15,9 @@
             "relativePath": "en/1)-getting-started/I)-welcome.html"
           },
           {
-            "name": "II)-users-setup.html",
-            "fullpath": "static/html/en/1)-getting-started/II)-users-setup.html",
-            "relativePath": "en/1)-getting-started/II)-users-setup.html"
+            "name": "II)-adding-users.html",
+            "fullpath": "static/html/en/1)-getting-started/II)-adding-users.html",
+            "relativePath": "en/1)-getting-started/II)-adding-users.html"
           }
         ]
       },

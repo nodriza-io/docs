@@ -1,6 +1,6 @@
 <template>
 
-<div class="sidebar">
+<div v-if="menu" class="sidebar">
   <nav class="sidebar-nav">
     <div>
       <img class="logo-top" src="https://s3.amazonaws.com/nodriza-io/assets/img/logos/nodriza-logo-color.svg">
@@ -48,7 +48,7 @@ export default {
       index: [],
       langs: {},
       lang: null,
-      menu: []
+      menu: null
     }
   },
   methods: {

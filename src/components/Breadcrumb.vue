@@ -1,7 +1,7 @@
 <template>
   <div>
-    <ol class="breadcrumb">
-      <template v-if="lang && category && content">        
+    <ol v-if="lang && category && content" class="breadcrumb">
+      <template >        
         <li class="breadcrumb-item"><span>Docs</span></li>
         <li class="breadcrumb-item"><span>{{ lang }}</span></li>
         <li class="breadcrumb-item"><span>{{ category }}</span></li>
