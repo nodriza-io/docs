@@ -29,13 +29,15 @@ export default {
       this.lang = this.$route.params.lang.toUpperCase()
       this.category = this.nodriza.u.kebabToText(this.$route.params.category).split(')')[1]
       this.content = this.nodriza.u.kebabToText(this.$route.params.content).split(')')[1]
+      document.title = 'Nodriza Docs / ' + this.lang + ' / ' + this.category + ' / ' + this.content
     })
   }
 }
 </script>
 <style scope>
 .active {
-  font-size: 16px;
-  line-height: 16px;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 600;
 }
 </style>

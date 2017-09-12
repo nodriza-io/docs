@@ -1,7 +1,7 @@
 <template>
   <div>
     <li class="nav-item">
-      <a @click="goTo()" class="nav-link slim bg-gray-dark">{{ nodriza.u.kebabToText(name.split('.html')[0]) }} </a>
+      <a :class="active ? ['', 'bg-primary'] : ''" @click="goTo()" class="nav-link slim bg-gray-dark">{{ nodriza.u.kebabToText(name.split('.html')[0]) }} </a>
     </li>
   </div>
     
@@ -26,12 +26,22 @@ export default {
     }
   },
   methods: {
+    getRoute (route) {
+      return '/' + this.relativePath.split('.html')[0]
+    },
     goTo (route) {
-      this.$router.push('/' + this.relativePath.split('.html')[0])
+      this.$router.push(this.getRoute())
+    },
+    updateNav () {
+      this.active = (this.getRoute() === window.location.pathname) || false
     }
   },
   mounted () {
     Object.assign(this, this.child)
+    this.eventHub.$on('updateNav', (fullpath) => {
+      this.updateNav()
+    })
+    this.updateNav()
   }
 }
 </script>
@@ -48,6 +58,11 @@ export default {
     padding-top: 8px !important;
     padding-bottom: 8px !important; 
     font-size: 14px;
+    transition: 0.5s;
+  }
+
+  .active {
+
   }
 
 </style>

@@ -1,6 +1,10 @@
 <template>
+  <div>
+    
+  <h1 class="m-b-25 title">{{ title }}</h1>
   <div class="animated fadeIn" v-html="content">
     {{ content }}
+  </div>
   </div>
 </template>
 
@@ -11,7 +15,8 @@ export default {
   },
   data: function () {
     return {
-      content: 'Loading...'
+      content: '',
+      title: ''
     }
   },
   methods: {
@@ -20,6 +25,7 @@ export default {
   mounted () {
     this.eventHub.$on('content', (content) => {
       this.content = content
+      this.title = this.nodriza.u.kebabToText(this.$route.params.content).split(')')[1]
     })
   }
 }
@@ -28,5 +34,8 @@ export default {
 <style scoped>
 .logo-jumbotron {
 
+}
+.title {
+  /*font-weight: 100;*/
 }
 </style>

@@ -33,27 +33,17 @@ window.nodriza = nodriza
 window.eventHub = eventHub
 window.rx = rx
 
-// Vue.filter('lang', (str) => {
-//   return (typeof str !== 'string') ? str.toUpperCase() : ''
-// })
-
-// Vue.filter('category', (str) => {
-//   if (typeof str !== 'string') return ''
-//   return this.nodriza.u.kebabToText(str)
-// })
-
-// Vue.filter('content', (str) => {
-//   if (typeof str !== 'string') return ''
-//   return this.nodriza.u.kebabToText(str).slice('.html')[0]
-// })
-
 router.beforeEach((to, from, callback) => {
   eventHub.$emit('showPreload', 'Loading...')
-  nodriza.u.req('/static/html' + to.path + '.html', (err, content) => {
+  const fullpath = '/static/html' + to.path + '.html'
+  console.log('->>> fullPath:', fullpath)
+  if (to.path === '/404') return callback()
+  nodriza.u.req(fullpath, (err, content) => {
     eventHub.$emit('hidePreload')
-    if (err) return alert(err)
+    if (err) return router.push('/404')
     eventHub.$emit('content', content)
     eventHub.$emit('updateBreadcrumb')
+    eventHub.$emit('updateNav')
   })
   callback()
 })

@@ -1,9 +1,8 @@
 <template>
-  <div class="wrapper text-left text-white ">
-  <!-- <span class="m-r-5 label"> LANGUAGES </span> -->
-    <i class="fa fa-globe globle"></i>
+  <div class="wrapper text-left text-white">
+    <i class="fa fa-globe globle m-r-10 m-b-10"></i>
     <template v-for="(item, index) in langs">
-      <a :class="index === $route.params.lang ? 'activeLang' : ''" class="m-r-10 text-bold langs" @click="lang = index">{{ index.toUpperCase() }}</a>
+      <a :class="index === $route.params.lang ? ['activeLang', 'text-primary'] : ''" class="m-r-10 text-bold langs" @click="setLang(index)">{{ index.toUpperCase() }}</a>
     </template>
   </div>
 </template>
@@ -26,7 +25,6 @@ export default {
   watch: {
     lang (lang) {
       this.$emit('input', this.lang)
-      this.$router.push('/' + lang)
     }
   },
   data: function () {
@@ -36,7 +34,9 @@ export default {
   },
   methods: {
     setLang (lang) {
-      alert(lang)
+      this.lang = lang
+      this.$router.push('/' + lang)
+      // alert(lang)
       // this$router.push({ path: window.location, query: { plan: 'private' }})
     }
   },

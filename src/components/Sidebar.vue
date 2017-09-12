@@ -6,41 +6,15 @@
       <img class="logo-top" src="https://s3.amazonaws.com/nodriza-io/assets/img/logos/nodriza-logo-color.svg">
     </div>
     <ul class="nav">
-      <li class="nav-item">
-        <span href="/app/dashboard" class="nav-link router-link-exact-active open active itm-header">
-           <Lang v-if="lang" :langs="langs" v-model="lang"/>
+      <li>
+        <span href="/app/dashboard" class="nav-link itm-header bg-inverted">
+          <Lang v-if="lang" :langs="langs" v-model="lang"/>
         </span>
       </li>
 
       <div v-if="menu" v-for="parent in menu" :key="parent">
         <NavParent :parent="parent"/>
       </div>
-
-      
-<!--       <li class="nav-item">
-        <li class="nav-item nav-dropdown open">
-          <div class="category text-uppercase"><i class="fa fa-chevron-down m-r-10"></i> Directory</div>
-          <ul class="nav-dropdown-items">
-            <li class="nav-item  "><a href="/components/buttons" class="nav-link slim bg-gray-dark"><i class="fa fa-angle-right"></i> Users
-              
-              </a>
-            </li>
-            <li class="nav-item "><a href="/components/social-buttons" class="nav-link slim bg-gray-dark"><i class="fa fa-angle-right"></i> Companies
-              
-              </a>
-            </li>
-            <li class="nav-item "><a href="/components/social-buttons" class="nav-link slim bg-gray-dark"><i class="fa fa-angle-right"></i> Departments
-              
-              </a>
-            </li>
-            <li class="nav-item "><a href="/components/cards" class="nav-link slim bg-gray-dark"><i class="fa fa-angle-right"></i> AWS Accounts
-              
-              </a>
-            </li>
-          </ul>
-        </li>
-      </li>
- -->
 
     </ul>
     <div></div>
@@ -62,7 +36,6 @@ export default {
   watch: {
     lang (lang) {
       this.menu = _.cloneDeep(this.langs[lang])
-      // console.log('->>> JSON.stringify(this.menu:)', JSON.stringify(this.menu, null, 4))
     },
     menu: {
       handler (menu) {
@@ -88,7 +61,8 @@ export default {
       if (err) return alert(err)
       for (var i = 0; i < data.length; i++) this.langs[data[i].name] = data[i].files
       this.langs = _.cloneDeep(this.langs)
-      this.lang = 'en'
+      console.log('->>> this.$router.params.lang:', this.$route.params.lang)
+      this.lang = this.$route.params.lang || 'en'
     })
   }
 }
@@ -98,7 +72,7 @@ export default {
 
   .logo-top {
     margin-left: 73px;
-    width: 43px;
+    width: 50px;
   }
 
   .itm-header {
