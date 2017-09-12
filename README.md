@@ -2,13 +2,15 @@
 
 ## http://docs.nodriza.io
 
-Nodriza docs spa served from S3 Bucket - docs.nodruza.io
+Nodriza docs spa served from S3 Bucket - docs.nodriza.io
 
 ### Install
 
 $ npm run install
 
 ### Dev
+
+Watch for static/html changes and generate index.json plus webpack hotreload
 
 $ npm run dev
 
