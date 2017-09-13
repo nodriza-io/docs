@@ -54,6 +54,11 @@
             "name": "I)-bienvenido.html",
             "fullpath": "static/html/es/1)-empecemos/I)-bienvenido.html",
             "relativePath": "es/1)-empecemos/I)-bienvenido.html"
+          },
+          {
+            "name": "III)-listica.html",
+            "fullpath": "static/html/es/1)-empecemos/III)-listica.html",
+            "relativePath": "es/1)-empecemos/III)-listica.html"
           }
         ]
       },

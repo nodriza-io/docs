@@ -1,10 +1,10 @@
 <template>
   <div v-if="content" class="animated fadeIn" >
-    <h2 class="m-b-25 title">{{ title }}</h2>
+    <h2 class="m-b-10 title">{{ title }}</h2>
     <div v-html="content">
       {{ content }}
     </div>
-    <div class="m-b-20"> 
+    <div class="m-b-10"> 
       <hr>
       <span>©2017 Nodriza</span>
       <span class="pull-right"><a href="http://nodriza.io" target="_blank">nodriza.io</a></span>
