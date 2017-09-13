@@ -18,15 +18,15 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/en/1)-getting-started/I)-welcome'
+      redirect: '/en/I)-getting-started/A)-overview'
     },
     {
       path: '/en',
-      redirect: '/en/1)-getting-started/I)-welcome'
+      redirect: '/en/I)-getting-started/A)-overview'
     },
     {
       path: '/es',
-      redirect: '/es/1)-empecemos/I)-bienvenido'
+      redirect: '/es/I)-inicio/A)-resumen'
     },
     {
       path: '/404',

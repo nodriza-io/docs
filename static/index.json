@@ -5,36 +5,58 @@
     "relativePath": "en",
     "files": [
       {
-        "name": "1)-getting-started",
-        "fullpath": "static/html/en/1)-getting-started",
-        "relativePath": "en/1)-getting-started",
+        "name": "I)-getting-started",
+        "fullpath": "static/html/en/I)-getting-started",
+        "relativePath": "en/I)-getting-started",
         "files": [
           {
-            "name": "I)-welcome.html",
-            "fullpath": "static/html/en/1)-getting-started/I)-welcome.html",
-            "relativePath": "en/1)-getting-started/I)-welcome.html"
+            "name": "A)-overview.html",
+            "fullpath": "static/html/en/I)-getting-started/A)-overview.html",
+            "relativePath": "en/I)-getting-started/A)-overview.html"
           },
           {
-            "name": "II)-adding-users.html",
-            "fullpath": "static/html/en/1)-getting-started/II)-adding-users.html",
-            "relativePath": "en/1)-getting-started/II)-adding-users.html"
+            "name": "B)-faq.html",
+            "fullpath": "static/html/en/I)-getting-started/B)-faq.html",
+            "relativePath": "en/I)-getting-started/B)-faq.html"
+          },
+          {
+            "name": "C)-glosary.html",
+            "fullpath": "static/html/en/I)-getting-started/C)-glosary.html",
+            "relativePath": "en/I)-getting-started/C)-glosary.html"
           }
         ]
       },
       {
-        "name": "2)-glosary",
-        "fullpath": "static/html/en/2)-glosary",
-        "relativePath": "en/2)-glosary",
+        "name": "II)-user-manual",
+        "fullpath": "static/html/en/II)-user-manual",
+        "relativePath": "en/II)-user-manual",
         "files": [
           {
             "name": "access-policies.html",
-            "fullpath": "static/html/en/2)-glosary/access-policies.html",
-            "relativePath": "en/2)-glosary/access-policies.html"
+            "fullpath": "static/html/en/II)-user-manual/access-policies.html",
+            "relativePath": "en/II)-user-manual/access-policies.html"
           },
           {
             "name": "apps.html",
-            "fullpath": "static/html/en/2)-glosary/apps.html",
-            "relativePath": "en/2)-glosary/apps.html"
+            "fullpath": "static/html/en/II)-user-manual/apps.html",
+            "relativePath": "en/II)-user-manual/apps.html"
+          }
+        ]
+      },
+      {
+        "name": "III)-developers",
+        "fullpath": "static/html/en/III)-developers",
+        "relativePath": "en/III)-developers",
+        "files": [
+          {
+            "name": "API Explorer.html",
+            "fullpath": "static/html/en/III)-developers/API Explorer.html",
+            "relativePath": "en/III)-developers/API Explorer.html"
+          },
+          {
+            "name": "Nodriza JS SDK.html",
+            "fullpath": "static/html/en/III)-developers/Nodriza JS SDK.html",
+            "relativePath": "en/III)-developers/Nodriza JS SDK.html"
           }
         ]
       }
@@ -46,36 +68,58 @@
     "relativePath": "es",
     "files": [
       {
-        "name": "1)-empecemos",
-        "fullpath": "static/html/es/1)-empecemos",
-        "relativePath": "es/1)-empecemos",
+        "name": "I)-inicio",
+        "fullpath": "static/html/es/I)-inicio",
+        "relativePath": "es/I)-inicio",
         "files": [
           {
-            "name": "I)-bienvenido.html",
-            "fullpath": "static/html/es/1)-empecemos/I)-bienvenido.html",
-            "relativePath": "es/1)-empecemos/I)-bienvenido.html"
+            "name": "A)-resumen.html",
+            "fullpath": "static/html/es/I)-inicio/A)-resumen.html",
+            "relativePath": "es/I)-inicio/A)-resumen.html"
           },
           {
-            "name": "III)-listica.html",
-            "fullpath": "static/html/es/1)-empecemos/III)-listica.html",
-            "relativePath": "es/1)-empecemos/III)-listica.html"
+            "name": "B)-preguntas-frecuentes.html",
+            "fullpath": "static/html/es/I)-inicio/B)-preguntas-frecuentes.html",
+            "relativePath": "es/I)-inicio/B)-preguntas-frecuentes.html"
+          },
+          {
+            "name": "C)-glosario.html",
+            "fullpath": "static/html/es/I)-inicio/C)-glosario.html",
+            "relativePath": "es/I)-inicio/C)-glosario.html"
           }
         ]
       },
       {
-        "name": "2)-glosario",
-        "fullpath": "static/html/es/2)-glosario",
-        "relativePath": "es/2)-glosario",
+        "name": "II)-manual-de-usuario",
+        "fullpath": "static/html/es/II)-manual-de-usuario",
+        "relativePath": "es/II)-manual-de-usuario",
         "files": [
           {
             "name": "apps.html",
-            "fullpath": "static/html/es/2)-glosario/apps.html",
-            "relativePath": "es/2)-glosario/apps.html"
+            "fullpath": "static/html/es/II)-manual-de-usuario/apps.html",
+            "relativePath": "es/II)-manual-de-usuario/apps.html"
           },
           {
-            "name": "politicas-de-acceso.html",
-            "fullpath": "static/html/es/2)-glosario/politicas-de-acceso.html",
-            "relativePath": "es/2)-glosario/politicas-de-acceso.html"
+            "name": "policiticas-de-acceso.html",
+            "fullpath": "static/html/es/II)-manual-de-usuario/policiticas-de-acceso.html",
+            "relativePath": "es/II)-manual-de-usuario/policiticas-de-acceso.html"
+          }
+        ]
+      },
+      {
+        "name": "III)-desarrolladores",
+        "fullpath": "static/html/es/III)-desarrolladores",
+        "relativePath": "es/III)-desarrolladores",
+        "files": [
+          {
+            "name": "API Explorer.html",
+            "fullpath": "static/html/es/III)-desarrolladores/API Explorer.html",
+            "relativePath": "es/III)-desarrolladores/API Explorer.html"
+          },
+          {
+            "name": "Nodriza JS SDK.html",
+            "fullpath": "static/html/es/III)-desarrolladores/Nodriza JS SDK.html",
+            "relativePath": "es/III)-desarrolladores/Nodriza JS SDK.html"
           }
         ]
       }

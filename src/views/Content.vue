@@ -1,6 +1,6 @@
 <template>
   <div v-if="content" class="animated fadeIn" >
-    <h2 class="m-b-10 title">{{ title }}</h2>
+    <h2 class="m-b-15 title">{{ title }}</h2>
     <div v-html="content">
       {{ content }}
     </div>
