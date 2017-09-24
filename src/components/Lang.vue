@@ -1,8 +1,9 @@
 <template>
-  <div class="wrapper text-left text-white">
-    <i class="fa fa-globe globle m-r-10 m-b-10"></i>
+  <div class="wrapper text-gray-light bg-gray-lighter">
+    <!-- <i class="fa fa-globe globle m-r-10 m-b-10"></i> -->
+    <!-- <div class="small text-muted">LANGUAGE </div> -->
     <template v-for="(item, index) in langs">
-      <a :class="index === $route.params.lang ? ['activeLang', 'text-primary'] : ''" class="m-r-10 text-bold langs" @click="setLang(index)">{{ index.toUpperCase() }}</a>
+      <a :class="index === $route.params.lang ? ['activeLang', 'text-primary'] : ''" class="m-r-10 langs" @click="setLang(index)">{{ index.toUpperCase() }}</a>
     </template>
   </div>
 </template>
@@ -48,23 +49,36 @@ export default {
 
 <style scoped>
 
-  .globle {
-    font-size: 19px !important;
-  }
+.small {
+  font-weight: 600;
+  margin-right: 10px;
+  font-size: 12px;
+  display: inline-block;
+}
 
-  .langs {
-    cursor: pointer;    
-    font-size: 16px;
-    font-weight: 100;
-  }
+.globle {
+  font-size: 19px !important;
+}
 
-  .activeLang {
-    font-weight: 600;
-    font-size: 18px;
-  }
+.langs {
+  cursor: pointer;    
+  font-size: 16px;
+  font-weight: 400;
+}
 
- .wrapper a {
-    color: white;
-  }
+.activeLang {
+  font-weight: 500;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.wrapper  {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  padding: 7px;
+  padding-left: 20px;
+  z-index: 100;
+}
 
 </style>

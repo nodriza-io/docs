@@ -3,11 +3,14 @@
 <div v-if="menu" class="sidebar">
   <nav class="sidebar-nav">
     <div>
+
       <img class="logo-top" src="https://s3.amazonaws.com/nodriza-io/assets/img/logos/nodriza-logo-color.svg">
+      <div class="small text-muted">DOCS </div>
+
     </div>
     <ul class="nav">
       <li>
-        <span href="/app/dashboard" class="nav-link itm-header bg-inverted">
+        <span href="/app/dashboard" class="nav-link itm-header bg-inverted p-t-0">
           <Lang v-if="lang" :langs="langs" v-model="lang"/>
         </span>
       </li>
@@ -70,16 +73,24 @@ export default {
 
 <style lang="css" scoped>
 
-  .logo-top {
-    margin-left: 73px;
-    width: 50px;
-  }
+.logo-top {
+  margin-left: 49px;
+  width: 61px;
+}
 
-  .itm-header {
-    font-weight: 600;
-    font-size: 14px !important;
-    text-align: center;
-  }
+.itm-header {
+  font-weight: 600;
+  font-size: 14px !important;
+  text-align: center;
+  padding-top: 0;
+}
 
+.small {
+  font-weight: 600;
+  font-size: 12px;
+  display: inline-block;
+  margin-left: 11px;
+  vertical-align: middle;  
+}
 
 </style>

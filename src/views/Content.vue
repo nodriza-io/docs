@@ -4,11 +4,13 @@
     <div v-html="content">
       {{ content }}
     </div>
-    <div class="m-b-10"> 
+
+<!--     <div class="m-b-10"> 
       <hr>
       <span>©2017 Nodriza</span>
       <span class="pull-right"><a href="http://nodriza.io" target="_blank">nodriza.io</a></span>
-    </div>
+    </div> -->
+    
   </div>
 </template>
 

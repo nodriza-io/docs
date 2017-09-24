@@ -38,6 +38,6 @@ export default {
 .active {
   font-size: 18px;
   line-height: 18px;
-  font-weight: 600;
+  font-weight: 400;
 }
 </style>
