@@ -3,7 +3,7 @@
     <!-- <i class="fa fa-globe globle m-r-10 m-b-10"></i> -->
     <!-- <div class="small text-muted">LANGUAGE </div> -->
     <template v-for="(item, index) in langs">
-      <a :class="index === $route.params.lang ? ['activeLang', 'text-primary'] : ''" class="m-r-10 langs" @click="setLang(index)">{{ index.toUpperCase() }}</a>
+      <a :class="index === $route.params.lang ? ['activeLang'] : ''" class="m-r-10 langs" @click="setLang(index)">{{ index.toUpperCase() }}</a>
     </template>
   </div>
 </template>
@@ -70,6 +70,7 @@ export default {
   font-weight: 500;
   font-size: 20px;
   text-decoration: underline;
+  color: #1d1d1d !important;
 }
 
 .wrapper  {

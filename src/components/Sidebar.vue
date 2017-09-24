@@ -74,7 +74,7 @@ export default {
 <style lang="css" scoped>
 
 .logo-top {
-  margin-left: 49px;
+  margin-left: 47px;
   width: 58px;
 }
 
