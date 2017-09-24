@@ -75,7 +75,7 @@ export default {
 
 .logo-top {
   margin-left: 49px;
-  width: 61px;
+  width: 58px;
 }
 
 .itm-header {
