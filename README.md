@@ -1,13 +1,4 @@
-# nodriza-oi bucket repo
-
-Sync with S3 nodriza-io bucket assets
-
-## Install
-
-$ npm install
-
-## Usage
-
-To sync with nodriza-io bucket
+# Nodriza Documentation
+To sync with bucket just run:
 $ npm run deploy
 
