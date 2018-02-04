@@ -5,6 +5,7 @@
   "author": "Juan Carlos Prieto <jprieto@nodriza.io>",
   "private": true,
   "scripts": {
+    "build": "cd daux.io;docker run --rm -it -w /build -v $PWD:/build daux/daux.io daux;",
     "deploy": "cd daux.io;docker run --rm -it -w /build -v $PWD:/build daux/daux.io daux;cd ..;node scripts/deploy.js complete;"
   },
   "dependencies": {
