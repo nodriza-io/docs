@@ -1,4 +1,5 @@
-<a class="Brand" href="<?= $params['base_page'] . $params['index']->getUri(); ?>"><?= $params['title']; ?></a>
+
+<a class="Brand" href="<?= $params['base_page'] . $params['index']->getUri(); ?>" style="padding-top: 27px;padding-bottom: 17px;"><img src="http://docs.nodriza.io/logo.png" width="133"></a>
 
 <?php if ($params['html']['search']) { ?>
     <div class="Search">
