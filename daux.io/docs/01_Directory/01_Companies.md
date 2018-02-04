@@ -20,4 +20,4 @@ Here is a quick example :
       <!-- here goes the rest of the page -->
     </body>
 
-[See more examples of supported languages](../02_Examples/Code_Highlighting.md)
+

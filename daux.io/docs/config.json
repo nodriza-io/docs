@@ -11,11 +11,12 @@
         "clean_urls": true
     },
     "html": {
+        "search": false,
         "auto_landing": false,
         "theme": "daux-blue",
         "breadcrumbs": true,
         "breadcrumb_separator": "Chevrons",
-        "toggle_code": true,
+        "toggle_code": false,
         "date_modified": true,
         "date_modified_format": "l, F j, Y g:i A",
         "float": false,
