@@ -1,32 +1,13 @@
-# Nodriza Docs
+# nodriza-oi bucket repo
 
-## http://docs.nodriza.io
+Sync with S3 nodriza-io bucket assets
 
-Nodriza docs spa served from S3 Bucket - docs.nodriza.io
+## Install
 
-### Install
+$ npm install
 
-$ npm run install
+## Usage
 
-### Dev
-
-Watch for static/html changes and generate index.json plus webpack hotreload
-
-$ npm run dev
-
-### Build production
-
-$ npm run build
-
-### Test production build
-
-Validate if everything is ok before deploy on S3 -> http://localhost:5000
-
-$ npm run serve
-
-### Deploy to S3 Bucket
-
-First time copy ./env/env.template to ./env/env and provide the bucket name and AWS Credentials
-
+To sync with nodriza-io bucket
 $ npm run deploy
 
